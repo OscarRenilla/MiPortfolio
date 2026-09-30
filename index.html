@@ -15,12 +15,14 @@
 
 <body>
     <header class="nav">
+        <!-- Logo: &lt; y &gt; son los simbolos < y > escritos como entidades HTML-->
         <a href="#inicio" class="logo">&lt;OR/&gt;</a>
         <nav>
             <a href="#sobre-mi">Sobre mí</a>
             <a href="#habilidades">Habilidades</a>
             <a href="#educacion">Educación</a>
             <a href="#proyectos">Proyectos</a>
+            <a href="#contacto">Contacto</a>
         </nav>
         <button id="cambiar-tema" aria-label="Cambiar tema">🌓</button>
     </header>
@@ -34,6 +36,7 @@
                 Ciberseguridad
             </p>
             <div class="botones">
+                <!-- target="_blank" abre el enlace en una pestaña nueva; rel="noopener" evita que esa pestaña controle la tuya por seguridad -->
                 <a class="btn" href="#proyectos">Ver proyectos</a>
                 <a class="btn sin-fondo" href="https://github.com/OscarRenilla" target="_blank" rel="noopener">GitHub</a>
             </div>
@@ -89,16 +92,15 @@
 
         <section id="proyectos" class="revela">
             <h2>Proyectos</h2>
+            <!-- Estos dos contenedores empiezan vacios y script.js los rellena con botones de filtro y tarjetas -->
             <div class="filtros" id="filtros"></div>
             <div class="grid" id="project-grid"></div>
         </section>
 
-        <section>
+        <section id="contacto" class="revela">
             <h2>Contacto</h2>
             <p>Descarga aquí mi curriculum: <a href="./assests/Curriculum-OscarRenilla_2026.pdf" target="_blank" rel="noopener">Curriculum</a></p>
-            <p>Teléfono: <a href="tel:+34633903864">+34 633 90 38 64</a></p>
-            <p>Correo electrónico: <a href="mailto:oscar06renilla@gmail.com">oscar06renilla@gmail.com</a></p>
-            <p>LinkedIn: <a href="www.linkedin.com/in/óscar-renilla-rodríguez" target="_blank" rel="noopener">www.linkedin.com/in/óscar-renilla-rodríguez</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/óscar-renilla-rodríguez" target="_blank" rel="noopener">https://www.linkedin.com/in/óscar-renilla-rodríguez</a></p>
         </section>
     </main>
 
