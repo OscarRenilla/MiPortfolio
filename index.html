@@ -1,19 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Óscar</title>
-    <link rel="stylesheet" href="./style.css"/>
-    <script src="./script.js" defer></script>
-    <link rel="icon" href="./assests/LogoPortfolio.webp"/>
-    <meta name="description" content="Portfolio personal"/>
-    <meta name="keywords" content="Portfolio, personal, identificación, curriculum"/>
-    <meta name="author" content="Óscar Renilla"/>
-  
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Óscar Renilla</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+    <link rel="icon" href="./assests/LogoPortfolio.webp" />
+    <meta name="description" content="Portfolio personal de Óscar Renilla Rodríguez - DAM Ciberseguridad" />
+    <meta name="keywords" content="Portfolio, personal, identificación, curriculum" />
+    <meta name="author" content="Óscar Renilla" />
 </head>
+
 <body>
-    
+    <header class="nav">
+        <a href="#inicio" class="logo">&lt;OR/&gt;</a>
+        <nav>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#educacion">Educación</a>
+            <a href="#proyectos">Proyectos</a>
+        </nav>
+        <button id="cambiar-tema" aria-label="Cambiar tema">🌓</button>
+    </header>
+
+    <main>
+        <section id="inicio" class="inicio">
+            <p class="titulo">Hola, soy</p>
+            <h1>Óscar Renilla Rodríguez</h1>
+            <p class="info">
+                Estudiante de Desarrollo de Aplicaciones Multiplataforma (DAM) y
+                Ciberseguridad
+            </p>
+            <div class="botones">
+                <a class="btn" href="#proyectos">Ver proyectos</a>
+                <a class="btn sin-fondo" href="https://github.com/OscarRenilla" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </section>
+
+        <section id="sobre-mi" class="revela">
+            <h2>Sobre mí</h2>
+            <p>
+                Responsable, eficaz y organizado, con una comunicación activa, comprometido, colaborador y en continuo aprendizaje para mejorar mis resultados.
+            </p>
+            <p>
+                Siempre he tenido un creciente interés por la programación y la robótica, por lo que he enfocado mis estudios y mi futuro profesional en este campo.
+            </p>
+        </section>
+
+        <section id="habilidades" class="revela">
+            <h2>Habilidades</h2>
+            <ul class="chips">
+                <li>Trabajo en equipo</li>
+                <li>Capacidad de adaptación</li>
+                <li>Resolucion de problemas</li>
+                <li>Rapidez de aprendizaje</li>
+                <li>Organización y planificación</li>
+                <li>Varios lenguajes de programación y web</li>
+            </ul>
+        </section>
+
+        <section id="educacion" class="revela">
+            <h2>Estudios</h2>
+            <div class="cronologia">
+                <article>
+                    <span>2026</span>
+                    <h3>AWS Academy Graduate - Cloud Developing</h3>
+                    <p>Training Badge · Amazon AWS</p>
+                </article>
+                <article>
+                    <span>2026/2027 · Cursando</span>
+                    <h3>Máster en Ciberseguridad</h3>
+                    <p>Prometeo by ThePower</p>
+                </article>
+                <article>
+                    <span>2026/2027 · Cursando</span>
+                    <h3>CFGS Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
+                    <p>Prometeo by ThePower · Carabanchel</p>
+                </article>
+                <article>
+                    <span>2025</span>
+                    <h3>Bachillerato Científico-Tecnológico</h3>
+                    <p>Colegio Vedruna Carabanchel</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="proyectos" class="revela">
+            <h2>Proyectos</h2>
+            <div class="filtros" id="filtros"></div>
+            <div class="grid" id="project-grid"></div>
+        </section>
+
+        <section>
+            <h2>Contacto</h2>
+            <p>Descarga aquí mi curriculum: <a href="./assests/Curriculum-OscarRenilla_2026.pdf" target="_blank" rel="noopener">Curriculum</a></p>
+            <p>Teléfono: <a href="tel:+34633903864">+34 633 90 38 64</a></p>
+            <p>Correo electrónico: <a href="mailto:oscar06renilla@gmail.com">oscar06renilla@gmail.com</a></p>
+            <p>LinkedIn: <a href="www.linkedin.com/in/óscar-renilla-rodríguez" target="_blank" rel="noopener">www.linkedin.com/in/óscar-renilla-rodríguez</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            © <span id="year"></span> Óscar Renilla Rodríguez -
+            <a href="https://github.com/OscarRenilla" target="_blank" rel="noopener">github.com/OscarRenilla</a>
+        </p>
+    </footer>
 </body>
+
 </html>
