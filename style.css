@@ -146,7 +146,7 @@ p+p {
     color: var(--muted);
     font-size: 1.2rem;
     margin: 0.8rem 0 1.6rem;
-    max-width: 36ch; /* Limita el ancho del texto a 36 caracteresº*/
+    max-width: 50ch; /* Limita el ancho del texto a 36 caracteresº*/
 }
 
 .botones {

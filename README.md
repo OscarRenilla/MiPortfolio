@@ -34,7 +34,7 @@ En el portfolio detallo casos reales, incluyendo:
 
 ## Instalacion Local
 
-Si deseas arrancar este proyecto en tu entorno local para revisar el código:
+Si quieres arrancar este proyecto en tu entorno local para revisar el código:
 
 1. Clona el repositorio:
 ````
