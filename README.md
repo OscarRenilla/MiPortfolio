@@ -1,6 +1,6 @@
 # MiPortfolio - Óscar Renilla Rodríguez 
 
-[![Despliegue: GitHub Pages](https://img.shields.io/badge/Despliegue-GitHub%20Pages-success)](#)
+[![Despliegue: Vercel](https://img.shields.io/badge/Despliegue-Vercel-success)](#)
 [![Stack: Vanilla JS](https://img.shields.io/badge/Stack-HTML5%20%7C%20CSS3%20%7C%20JS-blue)](#)
 
 Repositorio del codigo fuente de mi portfolio personal. En esta web exivo algunos de mis proyectos asi como mas información sobre mi. 
@@ -16,7 +16,7 @@ En los siguientes enlaces se pueden visitar el repositorio público en el que se
 Esta web la he desarrollado desde cero sin utilizar frameworks para garantizar un rendimiento optimo, codigo limpio y una superficie de ataque minima. 
 
 * **Frontend:** HTML5, CSS3 y JavaScript.
-* **Despliegue y Hosting:** GitHub Pages.
+* **Despliegue y Hosting:** Vercel.
 * **Seguridad:** Certificado SSL/TLS (HTTPS) gestionado automaticamente.
 
 ## Proyectos Destacados Incluidos
