@@ -319,7 +319,7 @@ h2::after {
     font-weight: 700;
 }
 
-.terminal-typewriter {
+.terminal-typewriter { 
     color: var(--text);
     min-height: 1.5em;
     display: inline-block;

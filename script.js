@@ -102,6 +102,7 @@ const proyectos = [
         tech: ["HTML", "CSS"],
         desc: "Prototipo web responsive con maquetación en HTML5 semántico y estilos modernos en CSS3.",
         url: "https://github.com/OscarRenilla/Proyecto-1-HTML-CSS.git",
+        demo: "https://proyecto-1-html-css-delta.vercel.app/",
         destacado: false,
         enDesarrollo: false,
     },
@@ -244,7 +245,7 @@ document.querySelectorAll(".cyber-heading").forEach((heading) => {
     heading.addEventListener("mouseenter", () => decryptText(heading));
 });
 
-// Efecto máquina de escribir (Typewriter) en la barra de terminal
+// Efecto máquina de escribir (Typewriter) en la barra de terminal (Misma animación del README.md de mi perfil de GitHub)
 const terminalPhrases = [
     "Diseñando arquitecturas seguras en la nube (AWS)",
     "Implementando seguridad desde la primera línea de código",
