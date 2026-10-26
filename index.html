@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio | Óscar Renilla</title>
+    <title>Portfolio | Óscar Renilla — Cybersecurity & DAM</title>
     <link rel="stylesheet" href="./style.css" />
     <script defer src="/_vercel/insights/script.js"></script>
     <script src="./script.js" defer></script>
@@ -15,9 +15,18 @@
 </head>
 
 <body>
+    <!-- Canvas interactivo de fondo temático de ciberseguridad / red neuronal -->
+    <canvas id="cyber-canvas" aria-hidden="true"></canvas>
+
     <header class="nav">
-        <!-- Logo: &lt; y &gt; son los simbolos < y > escritos como entidades HTML-->
+        <!-- Logo con estilo terminal hacker -->
         <a href="#inicio" class="logo">&lt;OR/&gt;</a>
+        
+        <div class="nav-status" title="Estado de seguridad del sistema">
+            <span class="status-dot"></span>
+            <span class="status-text">SEC_STATUS: SECURE</span>
+        </div>
+
         <nav>
             <a href="#sobre-mi">Sobre mí</a>
             <a href="#habilidades">Habilidades</a>
@@ -30,92 +39,111 @@
 
     <main>
         <section id="inicio" class="inicio">
-            <p class="titulo">Hola, soy</p>
-            <h1>Óscar Renilla Rodríguez</h1>
+            <div class="terminal-badge">
+                <span class="pulse-icon">●</span> ENCRYPTED_SHELL // v2.6.4
+            </div>
+            
+            <p class="titulo">&gt; init personal_portfolio.sh</p>
+            <h1 class="glitch-text" data-text="Óscar Renilla Rodríguez">Óscar Renilla Rodríguez</h1>
+            
+            <div class="terminal-bar">
+                <span class="terminal-prompt-user">root@oscar</span>:<span class="terminal-prompt-path">~</span>#
+                <span id="typewriter" class="terminal-typewriter"></span><span class="terminal-cursor">█</span>
+            </div>
+
             <p class="info">
                 Desarrollador de Aplicaciones Multiplataforma (DAM) · Máster en Ciberseguridad · Cloud & Cybersecurity Enthusiast
             </p>
+            
             <div class="botones">
                 <!-- target="_blank" abre el enlace en una pestaña nueva; rel="noopener" evita que esa pestaña controle la tuya por seguridad -->
-                <a class="btn" href="#proyectos">Ver proyectos</a>
-                <a class="btn sin-fondo" href="https://github.com/OscarRenilla" target="_blank" rel="noopener">GitHub</a>
+                <a class="btn btn-cyber" href="#proyectos">&gt; Ver proyectos</a>
+                <a class="btn sin-fondo" href="https://github.com/OscarRenilla" target="_blank" rel="noopener">GitHub ↗</a>
             </div>
         </section>
 
         <section id="sobre-mi" class="revela">
-            <h2>Sobre mí</h2>
-            <p>
-                Estudiante de 2º de <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong> y cursando el <strong>Máster en Ciberseguridad</strong> en Prometeo by ThePower.
-            </p>
-            <p>
-                Apasionado por la ciberseguridad aplicada (cifrado, autenticación, arquitecturas Zero-Knowledge), el desarrollo de aplicaciones móviles y backend con Java, Spring Boot y Kotlin, y el diseño de arquitecturas seguras en la nube con AWS (EC2, RDS, S3).
-            </p>
-            <p>
-                Actualmente desarrollando mi Trabajo de Fin de Grado: <strong>Zero-Vault</strong>, un gestor de contraseñas multiplataforma con arquitectura Zero-Knowledge y cifrado AES-256-GCM. Con un perfil responsable, eficaz y en continuo aprendizaje para aportar soluciones sólidas e innovadoras.
-            </p>
+            <div class="seccion-tag">&gt; whoami</div>
+            <h2 class="cyber-heading">Sobre mí</h2>
+            <div class="cyber-box">
+                <p>
+                    Estudiante de 2º de <strong>Desarrollo de Aplicaciones Multiplataforma (DAM)</strong> y cursando el <strong>Máster en Ciberseguridad</strong> en Prometeo by ThePower.
+                </p>
+                <p>
+                    Apasionado por la ciberseguridad aplicada (cifrado, autenticación, arquitecturas Zero-Knowledge), el desarrollo de aplicaciones móviles y backend con Java, Spring Boot y Kotlin, y el diseño de arquitecturas seguras en la nube con AWS (EC2, RDS, S3).
+                </p>
+                <p>
+                    Actualmente desarrollando mi Trabajo de Fin de Grado: <strong>Zero-Vault</strong>, un gestor de contraseñas multiplataforma con arquitectura Zero-Knowledge y cifrado AES-256-GCM. Con un perfil responsable, eficaz y en continuo aprendizaje para aportar soluciones sólidas e innovadoras.
+                </p>
+            </div>
         </section>
 
         <section id="habilidades" class="revela">
-            <h2>Habilidades</h2>
+            <div class="seccion-tag">&gt; ls -la /stack_tecnologico</div>
+            <h2 class="cyber-heading">Habilidades</h2>
+            
             <div class="habilidades-grupo">
-                <h3>Lenguajes y Tecnologías</h3>
+                <h3><span class="grupo-prefix">&gt;</span> Lenguajes y Tecnologías</h3>
                 <ul class="chips">
-                    <li>Java</li>
-                    <li>Kotlin</li>
-                    <li>Python</li>
-                    <li>JavaScript</li>
-                    <li>C#</li>
-                    <li>HTML5 & CSS3</li>
-                    <li>SQL (PostgreSQL / MySQL)</li>
-                    <li>MongoDB (NoSQL)</li>
+                    <li><span class="chip-dot"></span>Java</li>
+                    <li><span class="chip-dot"></span>Kotlin</li>
+                    <li><span class="chip-dot"></span>Python</li>
+                    <li><span class="chip-dot"></span>JavaScript</li>
+                    <li><span class="chip-dot"></span>C#</li>
+                    <li><span class="chip-dot"></span>HTML5 & CSS3</li>
+                    <li><span class="chip-dot"></span>SQL (PostgreSQL / MySQL)</li>
+                    <li><span class="chip-dot"></span>MongoDB (NoSQL)</li>
                 </ul>
             </div>
+            
             <div class="habilidades-grupo">
-                <h3>Frameworks, Cloud y Ciberseguridad</h3>
+                <h3><span class="grupo-prefix">&gt;</span> Frameworks, Cloud y Ciberseguridad</h3>
                 <ul class="chips">
-                    <li>Spring Boot</li>
-                    <li>Android Nativo</li>
-                    <li>Unity</li>
-                    <li>AWS (EC2, S3, RDS)</li>
-                    <li>Cifrado AES-256</li>
-                    <li>JWT</li>
-                    <li>Arquitectura Zero-Knowledge</li>
-                    <li>Git & GitHub</li>
-                    <li>JUnit</li>
+                    <li><span class="chip-dot"></span>Spring Boot</li>
+                    <li><span class="chip-dot"></span>Android Nativo</li>
+                    <li><span class="chip-dot"></span>Unity</li>
+                    <li><span class="chip-dot"></span>AWS (EC2, S3, RDS)</li>
+                    <li><span class="chip-dot"></span>Cifrado AES-256</li>
+                    <li><span class="chip-dot"></span>JWT</li>
+                    <li><span class="chip-dot"></span>Arquitectura Zero-Knowledge</li>
+                    <li><span class="chip-dot"></span>Git & GitHub</li>
+                    <li><span class="chip-dot"></span>JUnit</li>
                 </ul>
             </div>
+            
             <div class="habilidades-grupo">
-                <h3>Competencias Profesionales</h3>
+                <h3><span class="grupo-prefix">&gt;</span> Competencias Profesionales</h3>
                 <ul class="chips">
-                    <li>Trabajo en equipo</li>
-                    <li>Capacidad de adaptación</li>
-                    <li>Resolución de problemas</li>
-                    <li>Rapidez de aprendizaje</li>
-                    <li>Organización y planificación</li>
+                    <li><span class="chip-dot"></span>Trabajo en equipo</li>
+                    <li><span class="chip-dot"></span>Capacidad de adaptación</li>
+                    <li><span class="chip-dot"></span>Resolución de problemas</li>
+                    <li><span class="chip-dot"></span>Rapidez de aprendizaje</li>
+                    <li><span class="chip-dot"></span>Organización y planificación</li>
                 </ul>
             </div>
         </section>
 
         <section id="educacion" class="revela">
-            <h2>Estudios</h2>
+            <div class="seccion-tag">&gt; cat /var/log/formacion.log</div>
+            <h2 class="cyber-heading">Estudios</h2>
             <div class="cronologia">
                 <article>
-                    <span>2026</span>
+                    <span>[2026] CERTIFIED</span>
                     <h3>AWS Academy Graduate - Cloud Developing</h3>
                     <p>Training Badge · Amazon AWS</p>
                 </article>
                 <article>
-                    <span>2026/2027 · Cursando</span>
+                    <span>[2026/2027] IN_PROGRESS</span>
                     <h3>Máster en Ciberseguridad</h3>
                     <p>Prometeo by ThePower</p>
                 </article>
                 <article>
-                    <span>2026/2027 · Cursando</span>
+                    <span>[2026/2027] IN_PROGRESS</span>
                     <h3>2º CFGS Desarrollo de Aplicaciones Multiplataforma (DAM)</h3>
                     <p>Prometeo by ThePower · Carabanchel</p>
                 </article>
                 <article>
-                    <span>2025</span>
+                    <span>[2025] COMPLETED</span>
                     <h3>Bachillerato Científico-Tecnológico</h3>
                     <p>Colegio Vedruna Carabanchel</p>
                 </article>
@@ -123,24 +151,29 @@
         </section>
 
         <section id="proyectos" class="revela">
-            <h2>Proyectos</h2>
+            <div class="seccion-tag">&gt; ./ejecutar_proyectos.sh</div>
+            <h2 class="cyber-heading">Proyectos</h2>
             <!-- Estos dos contenedores empiezan vacíos y script.js los rellena con botones de filtro y tarjetas -->
             <div class="filtros" id="filtros"></div>
             <div class="grid" id="project-grid"></div>
         </section>
 
         <section id="contacto" class="revela">
-            <h2>Contacto</h2>
-            <p>Descarga aquí mi currículum: <a href="./assests/Óscar Renilla Rodríguez - Curriculum.pdf" target="_blank" rel="noopener">Curriculum Vitae</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/óscar-renilla-rodríguez" target="_blank" rel="noopener">linkedin.com/in/óscar-renilla-rodríguez</a></p>
-            <p>GitHub: <a href="https://github.com/OscarRenilla" target="_blank" rel="noopener">github.com/OscarRenilla</a></p>
+            <div class="seccion-tag">&gt; ping -c 4 contact_host</div>
+            <h2 class="cyber-heading">Contacto</h2>
+            <div class="cyber-box contacto-box">
+                <p>📄 Descarga aquí mi currículum: <a href="./assests/Óscar Renilla Rodríguez - Curriculum.pdf" target="_blank" rel="noopener">Curriculum Vitae</a></p>
+                <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/óscar-renilla-rodríguez" target="_blank" rel="noopener">linkedin.com/in/óscar-renilla-rodríguez</a></p>
+                <p>🐙 GitHub: <a href="https://github.com/OscarRenilla" target="_blank" rel="noopener">github.com/OscarRenilla</a></p>
+            </div>
         </section>
     </main>
 
     <footer>
         <p>
-            © <span id="year"></span> Óscar Renilla Rodríguez -
+            © <span id="year"></span> Óscar Renilla Rodríguez —
             <a href="https://github.com/OscarRenilla" target="_blank" rel="noopener">github.com/OscarRenilla</a>
+            <span class="footer-sec-badge">// ENCRYPTED</span>
         </p>
     </footer>
 </body>

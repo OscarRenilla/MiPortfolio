@@ -1,32 +1,48 @@
-/* Variables de color (Tema oscuro por defecto) */
+/* Variables de color con temática de ciberseguridad */
 :root {
-    --background: #0f1117;
-    --card: #181b24;
-    --text: #e8eaf0;
-    --muted: #9aa1b2; /* Texto secundario */
-    --accent: #5eead4; /* Color de acento */
-    --border: #262b38;
+    --background: #090c10;
+    --card: rgba(16, 22, 34, 0.78);
+    --card-solid: #101622;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #00f2fe; /* Cyan ciberespacio */
+    --accent-alt: #4facfe;
+    --accent-glow: rgba(0, 242, 254, 0.35);
+    --cyber-green: #00ff88;
+    --cyber-amber: #f59e0b;
+    --cyber-blue: #38bdf8;
+    --border: rgba(45, 55, 75, 0.75);
+    --border-hover: rgba(0, 242, 254, 0.6);
+    --cyber-grid: rgba(0, 242, 254, 0.035);
 }
 
-/* Variables de color (Tema claro). Solo redefinen las variables que cambian */
+/* Modo claro (Clean Tech / Cyber Lab) */
 :root[data-theme="light"] {
-    --background: #f7f8fb;
-    --card: #fff;
-    --text: #161922;
-    --muted: #586074;
-    --accent: #0f766e;
-    --border: #e2e5ee;
+    --background: #f4f6fb;
+    --card: rgba(255, 255, 255, 0.88);
+    --card-solid: #ffffff;
+    --text: #0f172a;
+    --muted: #526177;
+    --accent: #0284c7;
+    --accent-alt: #0d9488;
+    --accent-glow: rgba(2, 132, 199, 0.25);
+    --cyber-green: #059669;
+    --cyber-amber: #d97706;
+    --cyber-blue: #0284c7;
+    --border: #dbe2ee;
+    --border-hover: rgba(2, 132, 199, 0.6);
+    --cyber-grid: rgba(2, 132, 199, 0.04);
 }
 
-/* Estilos generales */
+/* Estilos base */
 * {
     box-sizing: border-box;
     margin: 0;
 }
 
 html {
-    scroll-behavior: smooth; /* Desplazamiento suave al hacer scroll */
-    scroll-padding-top: 70px; /* Evitar que el contenido quede oculto detrás del navbar fijo (Titulo)*/
+    scroll-behavior: smooth;
+    scroll-padding-top: 75px;
 }
 
 body {
@@ -45,146 +61,382 @@ body {
     background-color: var(--background);
     color: var(--text);
     line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+    /* Cuadrícula sutil de fondo */
+    background-image: 
+        linear-gradient(to right, var(--cyber-grid) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--cyber-grid) 1px, transparent 1px);
+    background-size: 44px 44px;
+}
+
+/* Canvas de red neuronal / ciberseguridad en segundo plano */
+#cyber-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.7;
 }
 
 a {
     color: var(--accent);
     text-decoration: none;
+    transition: color 0.2s, text-shadow 0.2s;
 }
 
+a:hover {
+    text-shadow: 0 0 8px var(--accent-glow);
+}
+
+/* Barra de navegación */
 .nav {
-    position: sticky; /* Posición fija en la parte superior */
+    position: sticky;
     top: 0;
-    z-index: 10; /* Está por encima de otros elementos */
+    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.8rem 5vw; 
-    background: color-mix(in srgb, var(--background) 85%, transparent); /* Fondo semitransparente. Mezcla el color de fondo con transparente y desenfoca */
-    backdrop-filter: blur(8px);
+    padding: 0.8rem 5vw;
+    background: color-mix(in srgb, var(--background) 82%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
+    transition: border-color 0.3s ease;
 }
 
 .logo {
-    font-family: monospace;
+    font-family: "Fira Code", Consolas, Monaco, monospace;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+    letter-spacing: -0.5px;
+    color: var(--text);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.logo:hover {
+    color: var(--accent);
+}
+
+/* Estado de seguridad en la navegación */
+.nav-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: monospace;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    background: color-mix(in srgb, var(--cyber-green) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--cyber-green) 35%, transparent);
+    border-radius: 999px;
+    color: var(--cyber-green);
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--cyber-green);
+    box-shadow: 0 0 8px var(--cyber-green);
+    animation: pulse-dot 2s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+    }
 }
 
 .nav nav {
     display: flex;
-    gap: 1.2rem;
+    gap: 1.3rem;
     flex-wrap: wrap;
 }
 
 .nav nav a {
     color: var(--muted);
     font-size: 0.95rem;
+    position: relative;
+    padding: 0.2rem 0;
+    font-weight: 500;
+}
+
+.nav nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+    transition: width 0.3s ease;
 }
 
 .nav nav a:hover {
-    color: var(--accent);
+    color: var(--text);
+}
+
+.nav nav a:hover::after {
+    width: 100%;
 }
 
 #cambiar-tema {
-    background: none;
+    background: var(--card);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 0.3rem 0.6rem;
+    padding: 0.35rem 0.65rem;
     cursor: pointer;
     font-size: 1rem;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Secciones y títulos */ 
+#cambiar-tema:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+    transform: rotate(15deg);
+}
+
+/* Secciones y contenedor general */
 section {
-    max-width: 1000px;
-    margin: 0 auto; /* Centra la sección en el viewport */
-    padding: 4rem 5vw;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 4.5rem 5vw;
+}
+
+/* Tags de terminal para secciones */
+.seccion-tag {
+    font-family: "Fira Code", Consolas, Monaco, monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+    text-transform: lowercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
 }
 
 h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1.2rem;
+    font-size: 2rem;
+    margin-bottom: 1.4rem;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
 }
 
-/* Línea debajo de cada h2. Es un pseudo elemento*/
 h2::after {
     content: "";
-    display: block;
-    width: 48px;
-    height: 3px;
-    background: var(--accent);
-    margin-top: 0.4rem;
-    border-radius: 2px;
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 80%);
+    margin-left: 0.8rem;
+    opacity: 0.7;
 }
 
-/* Para separar un párrafo de otro */
-p+p {
-    margin-top: 0.8rem;
-}
-
-/* Inicio */
+/* Sección Inicio */
 .inicio {
-    min-height: 80vh;
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 2rem;
+}
+
+.terminal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: flex-start;
+    font-family: monospace;
+    font-size: 0.78rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.pulse-icon {
+    font-size: 0.65rem;
+    color: var(--cyber-green);
+    animation: pulse-dot 1.8s infinite ease-in-out;
 }
 
 .titulo {
     color: var(--accent);
-    font-family: monospace;
+    font-family: "Fira Code", Consolas, Monaco, monospace;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
 }
 
 .inicio h1 {
-    font-size: clamp(2.4rem, 7vw, 4.5rem); /* clamp: Tamaño fluido que se adapta al viewport */
+    font-size: clamp(2.5rem, 6.5vw, 4.2rem);
     line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, var(--text) 40%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+/* Barra de terminal con máquina de escribir */
+.terminal-bar {
+    background: color-mix(in srgb, var(--card-solid) 90%, black);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    padding: 0.8rem 1.1rem;
+    font-family: "Fira Code", Consolas, Monaco, monospace;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+    max-width: 680px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.terminal-prompt-user {
+    color: var(--cyber-green);
+    font-weight: 700;
+}
+
+.terminal-prompt-path {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.terminal-typewriter {
+    color: var(--text);
+    min-height: 1.5em;
+    display: inline-block;
+}
+
+.terminal-cursor {
+    color: var(--accent);
+    animation: blink 0.9s infinite step-start;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
 
 .info {
     color: var(--muted);
-    font-size: 1.2rem;
-    margin: 0.8rem 0 1.6rem;
-    max-width: 50ch; /* Limita el ancho del texto a 50 caracteres */
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+    max-width: 58ch;
 }
 
 .botones {
     display: flex;
-    gap: 0.8rem;
+    gap: 1rem;
     flex-wrap: wrap;
 }
 
 /* Botones */
 .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     background: var(--accent);
-    color: var(--background);
-    padding: 0.7rem 1.3rem;
+    color: #0b0e14;
+    padding: 0.75rem 1.4rem;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 0.95rem;
     border: 1px solid var(--accent);
-}
-
-/* Botón sin fondo */
-.btn.sin-fondo {
-    background: none;
-    color: var(--accent);
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 0 16px var(--accent-glow);
 }
 
 .btn:hover {
-    opacity: 0.85;
+    transform: translateY(-2px);
+    box-shadow: 0 0 24px var(--accent-glow);
+    color: #000;
 }
 
-/* Habilidades - grupos y chips */
+.btn.sin-fondo {
+    background: color-mix(in srgb, var(--card) 60%, transparent);
+    color: var(--accent);
+    border: 1px solid var(--border);
+    box-shadow: none;
+}
+
+.btn.sin-fondo:hover {
+    border-color: var(--accent);
+    color: var(--text);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Cajas estilo cibernético */
+.cyber-box {
+    background: var(--card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.8rem;
+    position: relative;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.cyber-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 50px;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+}
+
+.cyber-box:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 20px var(--accent-glow);
+}
+
+.cyber-box p + p {
+    margin-top: 1rem;
+}
+
+/* Habilidades - Grupos y Chips */
 .habilidades-grupo + .habilidades-grupo {
-    margin-top: 1.6rem;
+    margin-top: 1.8rem;
 }
 
 .habilidades-grupo h3 {
     font-size: 1.05rem;
     color: var(--muted);
-    margin-bottom: 0.7rem;
+    margin-bottom: 0.8rem;
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.grupo-prefix {
+    color: var(--accent);
+    font-family: monospace;
 }
 
 .chips {
@@ -192,110 +444,196 @@ p+p {
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
+    gap: 0.65rem;
 }
 
 .chips li {
-    padding: 0.4rem 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.4rem 0.95rem;
     border: 1px solid var(--border);
     background: var(--card);
-    border-radius: 1000px; /* Bordes redondeados del todo */
-    font-size: 0.95rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 999px;
+    font-size: 0.92rem;
+    transition: all 0.25s ease;
+    cursor: default;
 }
 
-/* Educación (Estudios) */
-.cronologia {
-    border-left: 2px solid var(--border); /* La línea vertical a la izquierda */
-    padding-left: 1.4rem;
-    display: grid;
-    gap: 1.4rem;
-}
-
-.cronologia article {
-    position: relative; /* Colocar el punto de la cronología */
-}
-
-/* Punto de la cronología */
-.cronologia article::before {
-    content: "";
-    position: absolute;
-    left: -1.85rem;
-    top: 0.45rem;
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background: var(--accent);
-}
-
-.cronologia span {
-    font-family: monospace;
-    font-size: 0.85rem;
+.chips li:hover {
+    border-color: var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
+    transform: translateY(-2px);
     color: var(--accent);
 }
 
+.chip-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.7;
+}
+
+/* Educación / Cronología */
+.cronologia {
+    border-left: 2px solid var(--border);
+    padding-left: 1.6rem;
+    display: grid;
+    gap: 1.8rem;
+    margin-top: 1rem;
+}
+
+.cronologia article {
+    position: relative;
+    background: var(--card);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.3rem;
+    transition: all 0.25s ease;
+}
+
+.cronologia article::before {
+    content: "";
+    position: absolute;
+    left: -2.25rem;
+    top: 1.2rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--background);
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.cronologia article:hover {
+    border-color: var(--accent);
+    transform: translateX(4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), 0 0 15px var(--accent-glow);
+}
+
+.cronologia article:hover::before {
+    background: var(--accent);
+    transform: scale(1.3);
+}
+
+.cronologia span {
+    font-family: "Fira Code", Consolas, Monaco, monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
 .cronologia h3 {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    margin: 0.2rem 0;
 }
 
 .cronologia p {
     color: var(--muted);
-    font-size: 0.95rem;
+    font-size: 0.93rem;
 }
 
-/* Proyectos - Filtros */
+/* Filtros de proyectos */
 .filtros {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.4rem;
+    gap: 0.55rem;
+    margin-bottom: 1.6rem;
 }
 
 .filtros button {
     background: var(--card);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     color: var(--muted);
     border: 1px solid var(--border);
-    border-radius: 1000px;
-    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    padding: 0.35rem 1rem;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: all 0.2s ease;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.25s ease;
+    font-family: inherit;
 }
 
-.filtros button.active,
 .filtros button:hover {
-    color: var(--background);
+    color: var(--text);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.filtros button.active {
+    color: #0b0e14;
     background: var(--accent);
     border-color: var(--accent);
+    font-weight: 700;
+    box-shadow: 0 0 15px var(--accent-glow);
 }
 
-/* Proyectos - Tarjetas */
+/* Tarjetas de Proyectos */
 .grid {
     display: grid;
-    /* Columnas (Tantos como quepan en el ancho disponible, mínimo 270px cada una) */
-    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 1.3rem;
 }
 
 .card {
     background: var(--card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 1.2rem;
+    padding: 1.4rem;
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    gap: 0.75rem;
+    position: relative;
+    overflow: hidden;
     transition:
-        transform 0.2s,
-        border-color 0.2s;
+        transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Esquinas cibernéticas en las tarjetas */
+.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 16px 16px 0;
+    border-color: transparent var(--border) transparent transparent;
+    transition: border-color 0.2s;
 }
 
 .card:hover {
-    transform: translateY(-4px); /* La tarjeta se mueve hacia arriba al pasar el ratón sobre ella */
-    border-color: var(--accent);
+    transform: translateY(-5px);
+    border-color: var(--border-hover);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 20px var(--accent-glow);
 }
 
+.card:hover::after {
+    border-color: transparent var(--accent) transparent transparent;
+}
+
+/* Proyecto destacado */
 .card.card-destacado {
-    border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+    border-color: color-mix(in srgb, var(--cyber-amber) 40%, var(--border));
+    background: linear-gradient(180deg, color-mix(in srgb, var(--cyber-amber) 5%, var(--card)) 0%, var(--card) 100%);
+}
+
+.card.card-destacado:hover {
+    border-color: var(--cyber-amber);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), 0 0 22px rgba(245, 158, 11, 0.3);
 }
 
 .card-header {
@@ -305,24 +643,35 @@ p+p {
     gap: 0.5rem;
 }
 
+.card h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    word-break: break-word;
+}
+
 .card-badges {
     display: flex;
-    gap: 0.3rem;
+    gap: 0.35rem;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .badge {
     font-size: 0.72rem;
     padding: 0.2rem 0.55rem;
-    border-radius: 1000px;
+    border-radius: 999px;
     font-weight: 600;
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 .badge-destacado {
-    background: color-mix(in srgb, #f59e0b 15%, transparent);
-    color: #f59e0b;
-    border: 1px solid color-mix(in srgb, #f59e0b 35%, transparent);
+    background: color-mix(in srgb, var(--cyber-amber) 16%, transparent);
+    color: var(--cyber-amber);
+    border: 1px solid color-mix(in srgb, var(--cyber-amber) 40%, transparent);
 }
 
 :root[data-theme="light"] .badge-destacado {
@@ -332,9 +681,9 @@ p+p {
 }
 
 .badge-desarrollo {
-    background: color-mix(in srgb, #38bdf8 15%, transparent);
-    color: #38bdf8;
-    border: 1px solid color-mix(in srgb, #38bdf8 35%, transparent);
+    background: color-mix(in srgb, var(--cyber-blue) 16%, transparent);
+    color: var(--cyber-blue);
+    border: 1px solid color-mix(in srgb, var(--cyber-blue) 40%, transparent);
 }
 
 :root[data-theme="light"] .badge-desarrollo {
@@ -343,87 +692,135 @@ p+p {
     border-color: #bae6fd;
 }
 
-.card h3 {
-    font-size: 1.1rem;
-}
-
 .card p {
     color: var(--muted);
-    font-size: 0.93rem;
-    flex: 1; /* Ocupa el espacio disponible alineando las tarjetas */
+    font-size: 0.94rem;
+    flex: 1;
+    line-height: 1.55;
 }
 
 .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.3rem;
+    gap: 0.35rem;
 }
 
 .tags span {
-    font-family: monospace;
-    font-size: 0.75rem;
-    padding: 0.1rem 0.5rem;
+    font-family: "Fira Code", Consolas, Monaco, monospace;
+    font-size: 0.74rem;
+    padding: 0.15rem 0.5rem;
     border-radius: 6px;
-    background: color-mix(in srgb, var(--accent) 15%, transparent); /* Acento a 15% de opacidad */
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
     color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
 }
 
 .card-links {
     display: flex;
-    gap: 1rem;
+    gap: 1.1rem;
     align-items: center;
     flex-wrap: wrap;
     margin-top: auto;
-    padding-top: 0.4rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed color-mix(in srgb, var(--border) 70%, transparent);
 }
 
 .card-links a {
     font-size: 0.9rem;
-    font-weight: 500;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 .card-links a.link-demo {
-    color: var(--accent);
-    font-weight: 600;
+    color: var(--cyber-green);
+}
+
+.card-links a.link-demo:hover {
+    text-shadow: 0 0 8px var(--cyber-green);
+}
+
+/* Contacto */
+.contacto-box p {
+    font-size: 1.05rem;
 }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 2rem 5vw;
+    padding: 2.5rem 5vw;
     color: var(--muted);
     border-top: 1px solid var(--border);
     font-size: 0.9rem;
+    font-family: monospace;
 }
 
-/* Animación de aparición */
-/* Estado inicial, invisible y desplazado 20px hacia abajo */
+.footer-sec-badge {
+    color: var(--accent);
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+}
+
+/* Animaciones de revelado en scroll */
 .revela {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s, transform 0.6s;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Añade el estado visible y la sección aparece con la transición */
 .revela.visible {
     opacity: 1;
     transform: none;
 }
 
-/* Media query para reducir movimiento si el usuario lo pide en su sistema (Desactiva las animaciones) */
+/* Animación de entrada de tarjetas de proyectos */
+.card-animate {
+    animation: card-appear 0.4s ease-out forwards;
+}
+
+@keyframes card-appear {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Reducción de movimiento */
 @media (prefers-reduced-motion: reduce) {
     .revela {
         opacity: 1;
         transform: none;
         transition: none;
     }
-
+    .card-animate {
+        animation: none;
+    }
+    #cyber-canvas {
+        display: none;
+    }
     html {
         scroll-behavior: auto;
     }
 }
 
-/* En una pantalla inferior a 600px se oculta el menú superior */
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-status {
+        display: none;
+    }
+    .inicio h1 {
+        font-size: 2.3rem;
+    }
+    .terminal-bar {
+        font-size: 0.85rem;
+    }
+}
+
 @media (max-width: 600px) {
     .nav nav {
         display: none;
