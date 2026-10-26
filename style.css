@@ -124,7 +124,7 @@ p+p {
     margin-top: 0.8rem;
 }
 
-/* Inicnio */
+/* Inicio */
 .inicio {
     min-height: 80vh;
     display: flex;
@@ -146,7 +146,7 @@ p+p {
     color: var(--muted);
     font-size: 1.2rem;
     margin: 0.8rem 0 1.6rem;
-    max-width: 50ch; /* Limita el ancho del texto a 36 caracteresº*/
+    max-width: 50ch; /* Limita el ancho del texto a 50 caracteres */
 }
 
 .botones {
@@ -175,7 +175,18 @@ p+p {
     opacity: 0.85;
 }
 
-/* Habilidades - chips */
+/* Habilidades - grupos y chips */
+.habilidades-grupo + .habilidades-grupo {
+    margin-top: 1.6rem;
+}
+
+.habilidades-grupo h3 {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+}
+
 .chips {
     list-style: none;
     padding: 0;
@@ -188,7 +199,7 @@ p+p {
     padding: 0.4rem 0.9rem;
     border: 1px solid var(--border);
     background: var(--card);
-    border-radius: 1000px; /*Bordes redondeados del todo */
+    border-radius: 1000px; /* Bordes redondeados del todo */
     font-size: 0.95rem;
 }
 
@@ -247,6 +258,7 @@ p+p {
     padding: 0.3rem 0.9rem;
     cursor: pointer;
     font-size: 0.9rem;
+    transition: all 0.2s ease;
 }
 
 .filtros button.active,
@@ -282,6 +294,55 @@ p+p {
     border-color: var(--accent);
 }
 
+.card.card-destacado {
+    border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.card-badges {
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    font-size: 0.72rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 1000px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.badge-destacado {
+    background: color-mix(in srgb, #f59e0b 15%, transparent);
+    color: #f59e0b;
+    border: 1px solid color-mix(in srgb, #f59e0b 35%, transparent);
+}
+
+:root[data-theme="light"] .badge-destacado {
+    background: #fef3c7;
+    color: #b45309;
+    border-color: #fde68a;
+}
+
+.badge-desarrollo {
+    background: color-mix(in srgb, #38bdf8 15%, transparent);
+    color: #38bdf8;
+    border: 1px solid color-mix(in srgb, #38bdf8 35%, transparent);
+}
+
+:root[data-theme="light"] .badge-desarrollo {
+    background: #e0f2fe;
+    color: #0369a1;
+    border-color: #bae6fd;
+}
+
 .card h3 {
     font-size: 1.1rem;
 }
@@ -307,6 +368,25 @@ p+p {
     color: var(--accent);
 }
 
+.card-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 0.4rem;
+}
+
+.card-links a {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.card-links a.link-demo {
+    color: var(--accent);
+    font-weight: 600;
+}
+
 /* Footer */
 footer {
     text-align: center;
@@ -321,7 +401,7 @@ footer {
 .revela {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.6s, transform 0.6s
+    transition: opacity 0.6s, transform 0.6s;
 }
 
 /* Añade el estado visible y la sección aparece con la transición */
@@ -335,17 +415,17 @@ footer {
     .revela {
         opacity: 1;
         transform: none;
-        transition: none
+        transition: none;
     }
 
     html {
-        scroll-behavior: auto
+        scroll-behavior: auto;
     }
 }
 
 /* En una pantalla inferior a 600px se oculta el menú superior */
 @media (max-width: 600px) {
     .nav nav {
-        display: none
+        display: none;
     }
 }

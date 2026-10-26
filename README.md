@@ -3,40 +3,53 @@
 [![Despliegue: Vercel](https://img.shields.io/badge/Despliegue-Vercel-success)](#)
 [![Stack: Vanilla JS](https://img.shields.io/badge/Stack-HTML5%20%7C%20CSS3%20%7C%20JS-blue)](#)
 
-Repositorio del codigo fuente de mi portfolio personal. En esta web exivo algunos de mis proyectos asi como mas información sobre mi. 
+Repositorio del código fuente de mi portfolio personal. En esta web exhibo mis proyectos, tecnologías, formación y trayectoria.
 
-En los siguientes enlaces se pueden visitar el repositorio público en el que se encuentra este proyecto además de el enlace directo para visitar la web. 
+En los siguientes enlaces se puede visitar el repositorio público en el que se encuentra este proyecto además del enlace directo para visitar la web:
 
 - **[Visitar el Repositorio](https://github.com/OscarRenilla/MiPortfolio.git)** 
 - **[Visitar la Web de mi portfolio](https://oscar-renilla-portfolio.vercel.app/)** 
 
-
 ## Arquitectura del Portfolio
 
-Esta web la he desarrollado desde cero sin utilizar frameworks para garantizar un rendimiento optimo, codigo limpio y una superficie de ataque minima. 
+Esta web la he desarrollado desde cero con Vanilla JS (sin utilizar frameworks) para garantizar un rendimiento óptimo, código limpio, carga instantánea y una superficie de ataque mínima.
 
-* **Frontend:** HTML5, CSS3 y JavaScript.
+* **Frontend:** HTML5 semántico, CSS3 moderno y Vanilla JavaScript.
+* **Características:** Modo claro/oscuro persistente en LocalStorage, filtrado interactivo por categorías/tecnologías ("Todos", "Destacado", y tecnologías específicas) y diseño totalmente responsive.
 * **Despliegue y Hosting:** Vercel.
-* **Seguridad:** Certificado SSL/TLS (HTTPS) gestionado automaticamente.
+* **Seguridad:** Certificado SSL/TLS (HTTPS) gestionado automáticamente.
 
-## Proyectos Destacados Incluidos
-En el portfolio detallo casos reales, incluyendo:
+## Proyectos Incluidos
 
-- **[Proyecto-1-HTML-CSS](https://github.com/OscarRenilla/Proyecto-1-HTML-CSS.git)** — (HTML y CSS) - Ejercicio de web de prototipo de portfolio. 
-- **[proyecto2-katas-javascript](https://github.com/OscarRenilla/proyecto2-katas-javascript.git)** — (HTML y JavaScript) - Ejercicios de JavaScript 
-- **[proyecto3-KatasPython](https://github.com/OscarRenilla/proyecto3-KatasPython.git)** — (Python) - Ejercicio de Phyton 
-- **[proyecto4-SQL](https://github.com/OscarRenilla/proyecto4-SQL.git)** — (SQL) - Ejercicio de Bases de Datos 
-- **[proyecto5-noSQL](https://github.com/OscarRenilla/proyecto5-noSQL.git)** — (JavaScript, Json y MongoDB) - Ejercicios de noSQL 
-- **[Cronoss](https://github.com/OscarRenilla/Proyecto_Intermodular_DAM1.git)** — (HTML, CSS, JavaScript, Java, Junit, Json, SQL) - Galeria de Relojes 
-- **[WhatsUp](https://github.com/OscarRenilla/WhatsUp.git)** — (HTML, CSS, JavaScript, Java, SpringBoot) - Mensajes entre usuarios 
-- **[Concesionario](https://github.com/OscarRenilla/ProyectoFinal_3-Eval_Programacion-LM.git)** — (HTML, CSS, JavaScript, Java, SpringBoot, SQL) - Galería de vehículos 
-- **[ProyectFail](https://github.com/OscarRenilla/ProyectFail.git)** — (Java) - Corrección y optimización de código
+### Proyectos Destacados 
+- **[Cronoss](https://github.com/OscarRenilla/Proyecto_Intermodular_DAM1.git)** — *(HTML, CSS, JavaScript, Java, SpringBoot, SQL, JUnit)* — Galería de relojes de lujo (Full-Stack). Proyecto intermodular con arquitectura MVC y pruebas unitarias.
+- **[Concesionario](https://github.com/OscarRenilla/ProyectoFinal_3-Eval_Programacion-LM.git)** — *(HTML, CSS, JavaScript, Java, SpringBoot, SQL)* — Plataforma de gestión de concesionario de vehículos con catálogo y CRUD completo.
+- **[WhatsUp](https://github.com/OscarRenilla/WhatsUp.git)** — *(HTML, CSS, JavaScript, Java, SpringBoot)* — Aplicación web de mensajería interactiva entre usuarios.
+- **[Mi Portfolio](https://github.com/OscarRenilla/MiPortfolio.git)** — *(HTML, CSS, JavaScript)* — Portfolio web personal con modo oscuro/claro y filtrado dinámico.
 
-## Instalacion Local
+### Proyectos En Desarrollo 🚧
+- **Zero-Vault** *(TFG)* — *(Kotlin, Java, SpringBoot, PostgreSQL, AWS)* — Gestor de contraseñas multiplataforma con arquitectura Zero-Knowledge, app Android nativa con biometría y cifrado AES-256-GCM.
+- **Endless Runner 2D** *(PMDM + DI)* — *(Unity, C#, Android)* — Videojuego runner 2D para Android desarrollado en Unity con generación procedural y controles táctiles.
+
+### Proyectos de Desarrollo y Práctica
+- **[AutoTaller](https://github.com/OscarRenilla/crm-Taller.git)** — *(Python, HTML)* — Aplicación CRM para administración de un taller mecánico.
+- **[ProyectFail](https://github.com/OscarRenilla/ProyectFail.git)** — *(Java)* — Corrección, depuración y optimización de código Java.
+- **[proyecto5-noSQL](https://github.com/OscarRenilla/proyecto5-noSQL.git)** — *(JavaScript, JSON, MongoDB)* — Ejercicios de modelado no relacional y consultas con MongoDB.
+- **[proyecto4-SQL](https://github.com/OscarRenilla/proyecto4-SQL.git)** — *(SQL)* — Ejercicios de bases de datos relacionales y diseño de esquemas.
+- **[proyecto3-KatasPython](https://github.com/OscarRenilla/proyecto3-KatasPython.git)** — *(Python)* — Resolución de retos algorítmicos y estructuras de datos en Python.
+- **[proyecto2-katas-javascript](https://github.com/OscarRenilla/proyecto2-katas-javascript.git)** — *(HTML, JavaScript)* — Ejercicios prácticos (katas) de lógica y DOM en JavaScript.
+- **[Proyecto-1-HTML-CSS](https://github.com/OscarRenilla/Proyecto-1-HTML-CSS.git)** — *(HTML, CSS)* — Prototipo web con maquetación HTML5 y CSS3 puro.
+
+## Instalación Local
 
 Si quieres arrancar este proyecto en tu entorno local para revisar el código:
 
 1. Clona el repositorio:
-````
-bash
+```bash
 git clone https://github.com/OscarRenilla/MiPortfolio.git
+```
+
+2. Abre `index.html` en tu navegador o usa una extensión como Live Server.
+
+2. Abre `index.html` en tu navegador o usa una extensión como Live Server.
+
