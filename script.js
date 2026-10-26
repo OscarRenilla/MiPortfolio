@@ -300,7 +300,7 @@ function initCyberCanvas() {
 
     let width, height;
     let particles = [];
-    const particleCount = window.innerWidth < 768 ? 26 : 50;
+    const particleCount = window.innerWidth < 810 ? 26 : 50;
     const mouse = { x: null, y: null, maxDist: 130 };
 
     function resize() {
@@ -394,9 +394,64 @@ function initCyberCanvas() {
     animate();
 }
 
+// Menú desplegable para dispositivos móviles
+function initMenuHamburguesa() {
+    const botonMenu = document.getElementById("menu-hamburguesa");
+    const navLinks = document.getElementById("nav-links");
+    if (!botonMenu || !navLinks) return;
+
+    function toggleMenu() {
+        const isOpen = navLinks.classList.toggle("open");
+        botonMenu.classList.toggle("active", isOpen);
+        botonMenu.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        botonMenu.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
+    }
+
+    function closeMenu() {
+        navLinks.classList.remove("open");
+        botonMenu.classList.remove("active");
+        botonMenu.setAttribute("aria-expanded", "false");
+        botonMenu.setAttribute("aria-label", "Abrir menú");
+    }
+
+    botonMenu.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleMenu();
+    });
+
+    // Cerrar al pulsar en cualquier enlace del menú para navegar limpiamente a la sección
+    navLinks.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+            closeMenu();
+        });
+    });
+
+    // Cerrar al pulsar fuera del menú
+    document.addEventListener("click", (e) => {
+        if (!navLinks.contains(e.target) && !botonMenu.contains(e.target)) {
+            closeMenu();
+        }
+    });
+
+    // Cerrar con la tecla Escape
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeMenu();
+        }
+    });
+
+    // Cerrar si se redimensiona a pantalla de escritorio
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 810) {
+            closeMenu();
+        }
+    });
+}
+
 // Inicialización de componentes al cargar el DOM
 document.getElementById("year").textContent = new Date().getFullYear();
 renderizarFiltros();
 renderizarProyectos();
 initTypewriter();
 initCyberCanvas();
+initMenuHamburguesa();

@@ -27,14 +27,26 @@
             <span class="status-text">SEC_STATUS: SECURE</span>
         </div>
 
-        <nav>
-            <a href="#sobre-mi">Sobre mí</a>
-            <a href="#habilidades">Habilidades</a>
-            <a href="#educacion">Educación</a>
-            <a href="#proyectos">Proyectos</a>
-            <a href="#contacto">Contacto</a>
+        <nav class="nav-links" id="nav-links">
+            <div class="nav-status-mobile">
+                <span class="status-dot"></span>
+                <span class="status-text">SEC_STATUS: SECURE</span>
+            </div>
+            <a href="#sobre-mi"><span class="link-prefix">&gt; </span>Sobre mí</a>
+            <a href="#habilidades"><span class="link-prefix">&gt; </span>Habilidades</a>
+            <a href="#educacion"><span class="link-prefix">&gt; </span>Educación</a>
+            <a href="#proyectos"><span class="link-prefix">&gt; </span>Proyectos</a>
+            <a href="#contacto"><span class="link-prefix">&gt; </span>Contacto</a>
         </nav>
-        <button id="cambiar-tema" aria-label="Cambiar tema">🌓</button>
+
+        <div class="nav-actions">
+            <button id="cambiar-tema" aria-label="Cambiar tema">🌓</button>
+            <button id="menu-hamburguesa" class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
     </header>
 
     <main>
@@ -83,7 +95,7 @@
             <h2 class="cyber-heading">Habilidades</h2>
             
             <div class="habilidades-grupo">
-                <h3><span class="grupo-prefix">&gt;</span> Lenguajes y Tecnologías</h3>
+                <h3><span class="grupo-prefix">&gt;</span> ./lenguajes_y_tecnologías</h3>
                 <ul class="chips">
                     <li><span class="chip-dot"></span>Java</li>
                     <li><span class="chip-dot"></span>Kotlin</li>
@@ -97,7 +109,7 @@
             </div>
             
             <div class="habilidades-grupo">
-                <h3><span class="grupo-prefix">&gt;</span> Frameworks, Cloud y Ciberseguridad</h3>
+                <h3><span class="grupo-prefix">&gt;</span> ./frameworks_+_cloud_y_ciberseguridad</h3>
                 <ul class="chips">
                     <li><span class="chip-dot"></span>Spring Boot</li>
                     <li><span class="chip-dot"></span>Android Nativo</li>
@@ -112,7 +124,7 @@
             </div>
             
             <div class="habilidades-grupo">
-                <h3><span class="grupo-prefix">&gt;</span> Competencias Profesionales</h3>
+                <h3><span class="grupo-prefix">&gt;</span> ./competencias_profesionales</h3>
                 <ul class="chips">
                     <li><span class="chip-dot"></span>Trabajo en equipo</li>
                     <li><span class="chip-dot"></span>Capacidad de adaptación</li>
