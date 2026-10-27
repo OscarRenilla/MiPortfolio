@@ -51,7 +51,7 @@ const proyectos = [
     },
     {
         name: "AutoTaller",
-        tech: ["Python", "HTML"],
+        tech: ["Python", "Django", "SQLite", "HTML", "CSS"],
         desc: "Aplicación CRM para la administración de clientes, órdenes de trabajo y reparaciones en un taller mecánico.",
         url: "https://github.com/OscarRenilla/crm-Taller.git",
         destacado: false,
@@ -70,6 +70,7 @@ const proyectos = [
         tech: ["HTML", "CSS", "JavaScript", "API REST"], 
         desc: "Interfaz web de gestión con control por voz, tracking gestual y movimiento. Incluye realidad aumentada 2D, componente web propio y pruebas unitarias.", 
         url: "https://github.com/OscarRenilla/Interfaces-de-Usuario.git", 
+        demo: "https://interfaces-de-usuario-completo.netlify.app/",
         destacado: false,
         enDesarrollo: false, 
     },
