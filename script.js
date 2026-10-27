@@ -66,6 +66,14 @@ const proyectos = [
         enDesarrollo: false,
     },
     {
+        name: "Interfaces multitudinales ERP", 
+        tech: ["HTML", "CSS", "JavaScript", "API REST"], 
+        desc: "Interfaz web de gestión con control por voz, tracking gestual y movimiento. Incluye realidad aumentada 2D, componente web propio y pruebas unitarias.", 
+        url: "https://github.com/OscarRenilla/Interfaces-de-Usuario.git", 
+        destacado: false,
+        enDesarrollo: false, 
+    },
+    {
         name: "proyecto5-noSQL",
         tech: ["JavaScript", "JSON", "MongoDB"],
         desc: "Modelado de datos no relacionales, agregaciones y operaciones CRUD con bases de datos MongoDB y JSON.",
